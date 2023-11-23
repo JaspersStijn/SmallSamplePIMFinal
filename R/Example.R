@@ -3,7 +3,7 @@
 # Load packages
 library(readxl)
 library(tidyverse)
-source("Main_Function.R")
+source("./R/Main_Function.R")
 
 ## Read in data
 dat = read_xlsx("./Data/Pyridine.xlsx")
