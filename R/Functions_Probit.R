@@ -314,7 +314,7 @@ small_sample_GEE_MBN = function (formula, id, family = binomial, data, corstr = 
                                     mat$subj == unique(data$id)[i]))
       var_i = var[1:ncluster, 1:ncluster]
 
-      else if (family == "binomial") {
+      if (family == "binomial") {
         D <- mat.prod(covariate, dnorm(covariate %*% beta_est))+1e-5
         Vi <- diag(sqrt(c(pnorm(covariate %*% beta_est)*(1-pnorm(covariate %*% beta_est)))), cluster$n[i]) %*%
           var_i %*% diag(sqrt(c(pnorm(covariate %*% beta_est)*(1-pnorm(covariate %*% beta_est)))), cluster$n[i])
