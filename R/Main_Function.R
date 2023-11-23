@@ -1,8 +1,8 @@
 require(geesmv)
 require(matrixcalc)
 require(MASS)
-source("Functions_Logit.R")
-source("Functions_Probit.R")
+source("./R/Functions_Logit.R")
+source("./R/Functions_Probit.R")
 
 
 GEE_MH_fit = function(data, response, treatment, control, correction = "MBN",link="logit"){
