@@ -27,11 +27,10 @@ GEE_MH_fit = function(data, response, treatment, control, correction = "MBN",lin
     pseudo_x <- as.vector(t(outer(x_g1, x_g2, `-`)))
     pseudo_dat[,control[i]] = -pseudo_x
   }
-
   form <- as.formula(paste("y~", paste(control, collapse="+")))
   }
 
-  if(length(control)!=0){
+  if(length(control)==0){
     form <- as.formula(paste("y~1"))
   }
 
