@@ -28,16 +28,17 @@ GEE_MH_fit = function(data, response, treatment, control, correction = "MBN",lin
     pseudo_dat[,control[i]] = -pseudo_x
   }
 
-  pseudo_dat$C1 = rep((1:length(id.nonfac)),rep(length(id.fac),length(id.nonfac)))
-  pseudo_dat$C2 = rep((1:(length(id.fac))),length(id.nonfac))
-  pseudo_dat$C1C2 = 1:nrow(pseudo_dat)
-
   form <- as.formula(paste("y~", paste(control, collapse="+")))
   }
 
   if(length(control)!=0){
     form <- as.formula(paste("y~1"))
   }
+
+  pseudo_dat$C1 = rep((1:length(id.nonfac)),rep(length(id.fac),length(id.nonfac)))
+  pseudo_dat$C2 = rep((1:(length(id.fac))),length(id.nonfac))
+  pseudo_dat$C1C2 = 1:nrow(pseudo_dat)
+
 
   if(link=="logit"){
   ## Run the three models
