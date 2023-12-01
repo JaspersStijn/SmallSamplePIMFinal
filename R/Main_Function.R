@@ -20,6 +20,7 @@ GEE_MH_fit = function(data, response, treatment, control, correction = "MBN",lin
   pseudo_y <- as.vector(t(outer(y1, y2, `<`)+0.5*(outer(y1, y2, `==`)))*1)
   pseudo_dat = data.frame("y"=pseudo_y)
 
+  if(length(control)!=0){
   for(i in 1:length(control)){
     x_g1 <- data[id.nonfac,control[i]]
     x_g2 <- data[id.fac,control[i]]
@@ -32,6 +33,11 @@ GEE_MH_fit = function(data, response, treatment, control, correction = "MBN",lin
   pseudo_dat$C1C2 = 1:nrow(pseudo_dat)
 
   form <- as.formula(paste("y~", paste(control, collapse="+")))
+  }
+
+  if(length(control)!=0){
+    form <- as.formula(paste("y~1"))
+  }
 
   if(link=="logit"){
   ## Run the three models
