@@ -10,9 +10,8 @@ tion. In this way, appropriate inference.
 A data example is provided in the R file 'Example.R' contained in the man->examples folder.
 
 Package can be installed by running
-'''
-require(devtools)
-install_github("JaspersStijn/SmallSamplePIMFinal",force=TRUE);
 
-library("SmallSamplePIM")
-'''
+    require(devtools)
+    install_github("JaspersStijn/SmallSamplePIMFinal",force=TRUE);
+    library("SmallSamplePIM")
+
