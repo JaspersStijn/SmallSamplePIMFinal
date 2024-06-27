@@ -7,11 +7,16 @@ tion. In this way, appropriate inference.
 
 # Usage of the package
 
-A data example is provided in the R file 'Example.R' contained in the man->examples folder.
-
 Package can be installed by running
 
     require(devtools)
     install_github("JaspersStijn/SmallSamplePIMFinal",force=TRUE);
     library("SmallSamplePIM")
 
+A self-explaining data example is provided in the R file 'Example.R' contained in the man->examples folder. The main function to be used is 
+
+        GEE_MH_fit(data,response,treatment,control,correction,link)
+
+The dataset contains a response variable, a treatment indicator (specifying which groups to be compared) and possible control covariates. The default correction used is MBN, corresponding to the Morel, Bokossa and Neerchal (2003) small sample correction. Other corrections are mentioned in the accompanying paper. The logit link is used as a deafult.
+
+        
